@@ -48,6 +48,7 @@ public class UserDAO implements UserRepository {
             jdbcTemplate.update(connection -> {
                 PreparedStatement ps = connection.prepareStatement("insert into user values", new String[]{"ID"});
                 ps.setString(1, user.getEmail());
+                ps.setString(2, user.getPassword());
                 return ps;
             }, keyHolder);
         } else {

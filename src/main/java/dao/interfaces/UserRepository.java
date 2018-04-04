@@ -8,7 +8,8 @@ import org.springframework.jdbc.core.RowMapper;
 public interface UserRepository {
 
     RowMapper<User> ROW_MAPPER = (ResultSet resultSet, int rowNum) -> new User(
-        resultSet.getLong("id"), resultSet.getString("email"));
+        resultSet.getLong("id"), resultSet.getString("email"),
+        resultSet.getString("password"));
 
     List<User> findAll();
 
